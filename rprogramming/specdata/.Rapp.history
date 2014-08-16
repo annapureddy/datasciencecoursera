@@ -1,0 +1,157 @@
+mtcars
+mtcars[mtcars$cyl == 4, ]
+mtcars$cyl == 4
+nrow(mtcars$cyl == 4)
+length(mtcars$cyl == 4)
+nrow(mtcars)
+mtcars[1:4]
+class(mtcars)
+x
+x <- read.csv("hw1_")
+setwd ("coursera/datasciencecoursera")
+x <- read.csv("hw1_data.csv")
+x
+x$Oz
+x
+head(x)
+is.na(x$Ozone)
+sum(is.na(x$Ozone))
+x[!is.na(x$Ozone)]
+x[, !is.na(x$Ozone)]
+x[!is.na(x$Ozone), ]
+x$Ozone
+is.na(x$Ozone)
+x$Ozone[is.na(x$Ozone)]
+x$Ozone[!is.na(x$Ozone)]
+length(x$Ozone[!is.na(x$Ozone)])
+mean(x$Ozone[!is.na(x$Ozone)])
+sum(x$Ozone[!is.na(x$Ozone)])
+4887 /  116
+x[c(x$Ozone >= 31 )]
+x[c(x$Ozone >= 31), ]
+x[c(x$Ozone >= 31, Temp >= 90), ]
+x[c(x$Ozone >= 31, x$Temp >= 90), ]
+x[c(x$Ozone >= 31, x$Temp >= 90)]
+x[c(x$Ozone >= 31, x$Temp >= 90), ]
+x
+x$Ozone >= 31
+x[x$Ozone >= 31]
+x[x$Ozone >= 31, ]
+complete.cases(x)
+x[complete.cases(x)]
+x[complete.cases(x), ]
+y <- x[complete.cases(x), ]
+y[y$Ozone > 31 && y$Temp > 90, ]
+y
+x
+y
+nrow(y)
+nrow(x)
+y[y$Ozone > 31 && y$Temp > 90, ]
+y$Ozone > 31 && y$Temp > 90
+y$Ozone > 31 & y$Temp > 90
+y[y$Ozone > 31 & y$Temp > 90, ]
+mean(y[y$Ozone > 31 & y$Temp > 90, ])
+mean(y[y$Ozone > 31 & y$Temp > 90, ]$Solar)
+mean(y[y$Ozone > 31 & y$Temp > 90, ]$Solar.R)
+mean(y[y$Ozone > 31 & y$Temp > 90, ]$Solar)
+x[x$Month == 6]
+x[x$Month == 6, ]
+x[x$Month == 6, ]$Temp
+mean(x[x$Month == 6, ]$Temp)
+max(x[x$Month == 5, ]$Temp)
+max(x[x$Month == 5, ]$Ozone)
+x[x$Month == 5, ]$Ozone
+max(x[x$Month == 5, ]$Ozone)
+max(x[x$Month == 5, ]$Ozone, na.rm = TRUE)
+setwd("specdata")
+x <- read.csv ("001.csv")
+x
+x
+class(mtcars)
+mtcars[1,1]
+class(mtcars[1,1])
+mtcars[[1]]
+x <- c(1, 2, 3, 4)
+x[c(1, 2)]
+m <- matrix(1:2, 1:2)
+m
+m <- matrix(1:mons = c("March","April","January","November","January",#
++ "September","October","September","November","August",#
++ "January","November","November","February","May","August",#
++ "July","December","August","August","September","November",#
++ "February","April")2, 1:2)
+mons = c("March","April","January","November","January",#
++ "September","October","September","November","August",#
++ "January","November","November","February","May","August",#
++ "July","December","August","August","September","November",#
++ "February","April")
+mons = c("March","April","January","November","January",#
++ "September","October","September","November","August",#
++ "January","November","November","February","May","August",#
++ "July","December","August","August","September","November",#
++ "February","April")
+mons = c("March","April","January","November","January",
+"September","October","September","November","August",
+"January","November","November","February","May","August",
+"July","December","August","August","September","November",
+"February","April")
+mons
+factor(mons)
+mons = factor(mons,levels=c("January","February","March",
+"April","May","June","July","August","September",
+"October","November","December"),ordered=TRUE)
+mons
+args(cat)
+args(paste)
+search()
+x <- sys.time()
+x <- Sys.time()
+p <- as.POSIXlt()
+p <- as.POSIXlt(x)
+p
+names(p)
+help(unclass)
+names(unclass(p))
+help(names)
+p
+attributes(p)
+p$names
+attributes(p)
+length(p)
+class(p)
+attributes(p)
+p.names
+p
+class(p)
+attr(p)
+attr(p, names)
+attr(p, "names")
+attr(p, "class")
+attr(p, "attributes")
+attr(p, "length")
+attr(p, "tzone")
+cube <- function(x, n) {#
+        x^3#
+}
+cube(3)
+x <- 1:10#
+if(x > 5) {#
+        x <- 0#
+}
+f <- function(x) {#
+        g <- function(y) {#
+                y + z#
+        }#
+        z <- 4#
+        x + g(x)#
+}
+z <- 10#
+f(3)
+x <- 5#
+y <- if(x < 3) {#
+        NA#
+} else {#
+        10#
+}
+y
