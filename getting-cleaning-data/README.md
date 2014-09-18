@@ -1,4 +1,4 @@
-This directory contains three files:
+This directory contains the following files:
  * README.md (you are reading this now :))
  * CodeBook.md: Describes the variables, the data, and transformations done to clean up the data
  * run_analysis.R: An R script that implements the entire process
