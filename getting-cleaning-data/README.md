@@ -18,7 +18,7 @@ The script, run_analysis.R, in this directory does the following:
  
 There were several choices made:
  * I do not consider data in 'Inertial Signals' folder. This is because we remove all features that are not
- a mean or standard deviation in step 2 (which reads "Extracts only the measurements on the mean and standard 
+ a mean or standard deviation in step 2 anyway (which reads "Extracts only the measurements on the mean and standard 
  deviation for each measurement")
  * The script takes care of setting up the workspace. This involves downloading the data directly from the URL, 
  storing and extracting the data into a temporary directory, and working in that temporary directory. This was 
