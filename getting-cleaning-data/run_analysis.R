@@ -1,12 +1,10 @@
 library(data.table)
 library(dplyr)
 
-
 # Setup the workspace in a temporary directory
 setupWorkspace <- function() {
   # Create a temp dir to store all the working data, and cd into it
-  dir <- tempdir()  
-  setwd(dir)
+  dir <- tempdir()
 
   # Create a temp file, and unzip into the "data" directory
   file <- tempfile("data", fileext = ".gz")
@@ -68,7 +66,6 @@ step3 <- function(dir) {
   
   # Join the tables together
   df <- inner_join(df, activities)
-  colnames(df) <- c('activity_number', 'activity_label')
   df
 }
 
@@ -89,12 +86,14 @@ step5 <- function(dft, activities) {
   
   # Merge the two sets
   subjects <- rbind_list(df1, df2)
-  colnames(subjects) <- c('subject')
   
   # Add the activities and subjects columns to dft
-  mutate(dft, activities, subjects)
+  dft <- mutate(dft, activity = activities[, 2], subject = subjects[, 1])
   
   # Summarize the data
+  by_an_s <- group_by(dft, 'activity', 'subject')
+  dft <- summarise_each(by_an_s, funs(mean))
+  dft
 }
 
 # Cleanup the temp files created
@@ -103,11 +102,12 @@ cleanupWorkspace <- function(file, dir) {
   unlink("data", recursive = TRUE)
 }
 
-# paths <- setupWorkspace()
-# dir <- paths[2]
-# dft <- step1(dir)
-# dft <- step2(dft)
-# activities <- step3(dir)
+paths <- setupWorkspace()
+dir <- paths[2]
+dft <- step1(dir)
+dft <- step2(dft)
+activities <- step3(dir)
 # Nothing to do in step4; step2 takes care of it
-# step5(dft, activities)
-# cleanupWorkspace(paths[1], paths[2])
+dft <- step5(dft, activities)
+write.table(dft, 'summary.txt', row.names = FALSE)
+cleanupWorkspace(paths[1], paths[2])
